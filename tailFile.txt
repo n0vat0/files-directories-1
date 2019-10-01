@@ -1,0 +1,8 @@
+Tail: Escriba un programa que imprima una cuantas líneas al final de un archivo. 
+El programa deberá ser eficiente, de manera que realice un seek para desplazarse 
+cerca del final del archivo, realice una lectura de un bloque de datos y luego 
+retroceda hasta encontrar el número de líneas solicitado; hasta este punto, el 
+programa debería imprimir esas lineas desde el principio al final del archivo.
+Para invocar el programa, uno deberia digitar: mytail -n file, donde n es el 
+número de lineas al final del archivo a imprimir. Interfaces Útiles: stat(), 
+lseek(), open(), read(), close().
