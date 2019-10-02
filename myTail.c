@@ -9,7 +9,8 @@ int main(int argc, char *argv[])
   fp = fopen(argv[2], "r");
   int lines = 0;
   int ch1;
-  int ch2;
+  char str[1000];
+  char str1;
   int pos = 0;
   int rw = atoi(argv[1]);
 
@@ -20,26 +21,21 @@ int main(int argc, char *argv[])
       lines++;
     }
   }
-  lseek(fp, -100, SEEK_SET);
-  while ((ch2 = fgetc(fp)) != EOF)
+
+  fseek(fp, 0, SEEK_SET);
+
+  for (int i = 0; i <= (lines + rw); i++)
   {
-    if (ch2 == '\n')
-    {
-      pos++;
-    }
-    if (pos == lines - rw)
-    {
-      break;
-    }
+    pos++;
+    fgets(str, 1000, fp);
+  }
+  printf("\n");
+
+  while ((str1 = fgetc(fp)) != EOF)
+  {
+    printf("%c", str1);
   }
 
-  //lseek(fp, pos, SEEK_SET);
-
-  //char str[2 * 100];
-  printf("%d %d\n", lines, pos);
-
-  /* while (fgets(str, sizeof(str), fp))
-  {
-    printf("%s", str);
-  } */
+  printf("\n\n");
+  fclose(fp);
 }
